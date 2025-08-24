@@ -1,0 +1,55 @@
+/* Правая зона */
+.sm-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sm-meta {
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+.sm-hours {
+  font-size: 14px;
+  color: var(--sm-muted);
+}
+
+.sm-phone {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--sm-text);
+  border-bottom: 2px solid rgba(0,0,0,.6); /* как подчёркнутый номер */
+  padding-bottom: 2px;
+}
+
+.sm-cta {
+  background: var(--sm-dark);
+  color: #fff;
+  border: 0;
+  padding: 10px 18px;
+  border-radius: var(--sm-radius);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .06s ease, background .2s ease;
+}
+.sm-cta:hover { background: var(--sm-dark-2); }
+.sm-cta:active { transform: translateY(1px); }
+
+.sm-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+}
+.sm-lang button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--sm-muted);
+  font-weight: 600;
+}
+.sm-lang .is-active { color: var(--sm-text); }
+.sm-lang .sep { opacity: .6; }

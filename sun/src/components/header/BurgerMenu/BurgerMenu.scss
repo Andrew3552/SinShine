@@ -1,0 +1,61 @@
+/* Кнопка-бургер */
+.sm-burger {
+  /* настраиваемые переменные */
+  --w: 26px;      /* длина палочки */
+  --h: 2px;       /* толщина */
+  --gap: 7px;     /* вертикальный зазор между линиями */
+  --dur: 350ms;
+
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.sm-burger:focus-visible {
+  outline: 2px solid rgba(0,0,0,.4);
+  outline-offset: 2px;
+}
+
+/* Линии */
+.sm-burger__line {
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  background: var(--sm-text, #111);
+  border-radius: 999px;
+  transform-origin: 50% 50%;
+  transition:
+    transform var(--dur) cubic-bezier(.4,0,.2,1),
+    opacity 200ms ease,
+    width 300ms ease;
+}
+
+/* стартовые позиции: верхняя, средняя, нижняя */
+.sm-burger__line:nth-child(1) { transform: translateY(calc(-1 * var(--gap))); }
+.sm-burger__line:nth-child(2) { transform: translateY(0); }
+.sm-burger__line:nth-child(3) { transform: translateY(var(--gap)); }
+
+/* состояние ОТКРЫТО: превращаемся в “X” */
+.sm-burger.is-open .sm-burger__line:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+.sm-burger.is-open .sm-burger__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.4); /* лёгкое схлопывание вместо резкого скрытия */
+}
+.sm-burger.is-open .sm-burger__line:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+/* лёгкое взаимодействие */
+.sm-burger:hover .sm-burger__line:nth-child(2):not(:only-child) {
+  width: calc(var(--w) * .9);
+}
+
