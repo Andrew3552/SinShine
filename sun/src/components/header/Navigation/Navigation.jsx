@@ -25,8 +25,9 @@ function Navigation({ open, setOpen }) {
 
       <div className="sm-nav__inner">
         <Link to="/" end onClick={() => setOpen(false)}>Домашня</Link>
-        <Link to="/about" onClick={() => setOpen(false)}>Про компанію</Link>
-        <Link to="/contact" onClick={() => setOpen(false)}>Контакти</Link>
+        <Link to="/sunEnergy" onClick={() => setOpen(false)}>Cонячна енергетика</Link>
+        <Link to="/about" onClick={() => setOpen(false)}>Загальне будівництво</Link>
+        {/* <Link to="/contact" onClick={() => setOpen(false)}>Контакти</Link> */}
       </div>
 
       <div className="sm-socials">

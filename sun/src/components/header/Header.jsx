@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import RightZone from "./RightZone/RightZone";
 import Navigation from "./Navigation/Navigation";
+import Logo from "../../../assets/img/logo-1-.png"
 
 import "./Header.scss";
 
@@ -15,12 +16,14 @@ export default function Header() {
         <BurgerMenu setOpen={setOpen} open={open} />
         <Link to="/" className="sm-brand">
           <div className="sm-brand__text">
-            <div className="sm-brand__name">
+
+            <img className="sm-brand__logo" src={Logo}></img>
+            {/* <div className="sm-brand__name">
               SOLAR
               <br />
               MARKET
-            </div>
-            <div className="sm-brand__tag">СОНЯЧНІ ЕЛЕКТРОСТАНЦІЇ</div>
+            </div> */}
+            <div className="sm-brand__tag">Будуємо майбутнє</div>
           </div>
         </Link>
         <RightZone />
