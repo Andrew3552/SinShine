@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import RightZone from "./RightZone/RightZone";
 import Navigation from "./Navigation/Navigation";
-import Logo from "../../../assets/img/logo-1-.png"
+import CallbackModal from "../Modal/Modal";
 
 import "./Header.scss";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+   const [cbOpen, setCbOpen] = useState(false); // модалка
 
   return (
     <header className="sm-header">
@@ -16,19 +17,12 @@ export default function Header() {
         <BurgerMenu setOpen={setOpen} open={open} />
         <Link to="/" className="sm-brand">
           <div className="sm-brand__text">
-
-            <img className="sm-brand__logo" src={Logo}></img>
-            {/* <div className="sm-brand__name">
-              SOLAR
-              <br />
-              MARKET
-            </div> */}
-            <div className="sm-brand__tag">Будуємо майбутнє</div>
+            <p className="sm-brand__tag">Будуємо майбутнє</p>
           </div>
         </Link>
-        <RightZone />
+        <RightZone open={open} setOpen={setOpen} onOpenCallback={() => setCbOpen(true)}/>
       </div>
-      <Navigation open={open} setOpen={setOpen} />
+       <CallbackModal open={cbOpen} onClose={() => setCbOpen(false)} />
     </header>
   );
 }

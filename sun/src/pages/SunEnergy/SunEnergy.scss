@@ -1,0 +1,64 @@
+.sun-energy {
+  --bg: #fcf6e8;
+  --text: var(--sm-text, #111);
+  --muted: #444;
+  --accent: #c6842b;
+
+  background: var(--bg);
+  color: var(--text);
+  padding: 36px 0 44px;
+}
+
+.sun-energy__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sun-energy__title {
+  font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: .02em;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.sun-energy__intro {
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* две колонки */
+.sun-energy__two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+/* карточка в этой секции — «плоская» (без иконки) */
+.sun-card.hero-card { grid-template-columns: 1fr; }
+.sun-card .hero-card__title { margin-bottom: 10px; }
+.sun-card .hero-card__list li { color: var(--muted); }
+.sun-card .hero-card__list li::marker { color: var(--text); }
+
+/* блок «Кейси» */
+.sun-energy__cases { margin-top: 6px; }
+
+/* CTA */
+.sun-energy__cta { margin-top: 24px; }
+.sun-energy__cta-kicker {
+  font-size: 14px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--muted); margin-bottom: 6px;
+}
+.sun-energy__cta p {
+  margin: 0; font-weight: 800; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.25;
+}
+
+/* адаптив */
+@media (max-width: 960px) {
+  .sun-energy__two { grid-template-columns: 1fr; gap: 18px; }
+}

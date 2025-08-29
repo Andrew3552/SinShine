@@ -1,0 +1,24 @@
+:root {
+  --sm-background: #432819; /* фон */
+  --sm-text: #111111; /* основной текст */
+  --sm-title-text: #C68B59; /* заголовки */
+  --sm-section-fon: #ebdfc9; /* фон секций */
+  --sm-yellow: #c4a320;
+  --sm-radius: 24px;
+}
+
+@font-face{
+  font-family: "Montserrat-Bold";
+  src: url("../assets/fonts/Montserrat-Bold.ttf") format("ttf");
+  font-weight: 700;     
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "OpenSans-Regular";
+  src: url("../assets/fonts/OpenSans_Condensed-Regular.ttf") format("ttf");
+  font-weight: 400;    
+  font-style: normal;
+  font-display: swap;
+}

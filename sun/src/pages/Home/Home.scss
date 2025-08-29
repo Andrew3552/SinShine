@@ -1,0 +1,97 @@
+.home-hero {
+  --cream: #fcf6e8;                 /* фон секции */
+  --accent: #c6842b;                 /* цвет заголовка слева */
+  --chip: var(--sm-yellow, #f4c20d); /* фон иконки */
+  --text: var(--sm-text, #111);
+
+  background: var(--cream);
+  color: var(--text);
+  padding: 40px 0;
+}
+
+.home-hero__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* две колонки, как на макете */
+  gap: 48px;
+  align-items: start;
+  position: relative;
+}
+
+.home-hero__left { max-width: 46ch; }
+
+.home-hero__kicker {
+  margin: 0 0 14px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: clamp(26px, 3.4vw, 40px);
+}
+
+.home-hero__lead {
+  margin: 0;
+  line-height: 1.65;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Правая колонка с карточками */
+.home-hero__right {
+  display: grid;
+  gap: 18px;
+}
+
+.home-hero__card {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-hero__icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: var(--chip);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 0 rgba(0,0,0,.08);
+}
+
+.home-hero__card-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.1;
+  font-size: clamp(16px, 1.7vw, 22px);
+}
+
+/* Разделительная вертикальная линия (необязательно, но как на скрине) */
+.home-hero__container::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  transform: translateX(-12px); /* немного смещаем к правой колонке */
+  background: rgba(0,0,0,.08);
+}
+
+/* Адаптив */
+@media (max-width: 960px) {
+  .home-hero__container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .home-hero__container::before { display: none; }
+  .home-hero__left { max-width: none; }
+}

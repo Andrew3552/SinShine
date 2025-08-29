@@ -7,7 +7,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: var(--p-top) var(--p-x) var(--p-bottom);
-  
 }
 
 .sm-nav__inner {
@@ -17,18 +16,28 @@
   font-weight: 600;
 }
 
+.sm-socials {
+  display: none;
+}
+
 .sm-nav a {
-  color: var(--sm-text);
+   font-family: "OpenSans-Regular", system-ui, -apple-system, "Segoe UI", Roboto,
+      Arial, sans-serif;
+    font-weight: 400;
+  color: var(--sm-yellow);
   text-decoration: none;
 }
 .sm-nav a:hover {
   text-decoration: underline;
 }
 .sm-nav__contact {
-  display: none;   
+  display: none;
 }
 
 .sm-contact__text {
+  font-family: "OpenSans-Regular", system-ui, -apple-system, "Segoe UI", Roboto,
+      Arial, sans-serif;
+    font-weight: 400;
   line-height: 1.2;
   color: rgb(85, 85, 85);
 }
@@ -36,12 +45,12 @@
 /* Адаптив */
 @media (max-width: 960px) {
   .sm-nav {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
-    top: 100%; /* сразу под .sm-header__bar */
-    z-index: 900;
-    background: var(--sm-yellow);
+    top: var(--header-h, 64px);
+    z-index: 1200;
+    background: var(--sm-background);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
     /* Скрытое состояние — обрезаем контент справа и слегка сдвигаем влево */
@@ -60,18 +69,17 @@
   .sm-nav__inner {
     flex-direction: column;
     gap: 16px;
-      padding-top: 10px;
-
+    padding-top: 10px;
   }
 
-    .sm-nav__contact {
-    display: grid;          /* мобилка: показываем */
+  .sm-nav__contact {
+    display: grid; /* мобилка: показываем */
     gap: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   }
-  
- .sm-contact__row {
+
+  .sm-contact__row {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -79,22 +87,28 @@
     text-decoration: none;
     line-height: 1.2;
   }
-   .sm-socials {
+  .sm-socials {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-top: 2px;
-      padding-top: 10px;
+    padding-top: 10px;
   }
   .sm-social {
-    width: 36px; height: 36px;
-    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
-    background: rgba(0,0,0,.08);
+    background: rgba(0, 0, 0, 0.08);
     color: var(--sm-text);
-    transition: transform .12s ease, background .2s ease;
+    transition: transform 0.12s ease, background 0.2s ease;
   }
-  .sm-social:hover { transform: translateY(-1px); background: rgba(0,0,0,.12); }
+  .sm-social:hover {
+    transform: translateY(-1px);
+    background: rgba(0, 0, 0, 0.12);
+  }
 
   .sm-cta--wide {
     width: 100%;
@@ -116,7 +130,7 @@
     transition: transform 360ms cubic-bezier(0.4, 0, 0.2, 1), opacity 240ms ease;
   }
 
-    /* e-mail (контактная строка) — появляется после ссылок */
+  /* e-mail (контактная строка) — появляется после ссылок */
   .sm-nav__contact .sm-contact__row {
     transform: translateX(-100px);
     opacity: 0;
@@ -144,7 +158,7 @@
   .sm-nav.is-open .sm-nav__inner > a:nth-child(4) {
     transition-delay: 200ms;
   }
-   /* соцсети — в ряд, с каскадом слева направо */
+  /* соцсети — в ряд, с каскадом слева направо */
   .sm-socials > a {
     transform: translateX(-60px);
     opacity: 0;
@@ -155,12 +169,19 @@
     transform: none;
     opacity: 1;
   }
-  .sm-nav.is-open .sm-socials > a:nth-child(1) { transition-delay: 420ms; }
-  .sm-nav.is-open .sm-socials > a:nth-child(2) { transition-delay: 340ms; }
-  .sm-nav.is-open .sm-socials > a:nth-child(3) { transition-delay: 280ms; }
+  .sm-nav.is-open .sm-socials > a:nth-child(1) {
+    transition-delay: 420ms;
+  }
+  .sm-nav.is-open .sm-socials > a:nth-child(2) {
+    transition-delay: 340ms;
+  }
+  .sm-nav.is-open .sm-socials > a:nth-child(3) {
+    transition-delay: 280ms;
+  }
 
   /* опционально — лёгкий «подъезд» всего блока контактов целиком */
-  .sm-nav__contact, .sm-socials {
+  .sm-nav__contact,
+  .sm-socials {
     will-change: transform, opacity;
   }
 }

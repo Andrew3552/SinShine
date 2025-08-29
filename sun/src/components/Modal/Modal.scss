@@ -1,0 +1,105 @@
+/* затемняющий/размывающий фон */
+.cb-overlay{
+  position: fixed; inset: 0;
+  z-index: 1900;
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  opacity: 1; /* у тебя может быть анимация/класс is-open */
+}
+
+/* центрируем модалку */
+.cb-wrap{
+  position: fixed; inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;      /* центр по обеим осям */
+  padding: 24px;            /* чтобы на маленьких экранах были поля от краёв */
+  pointer-events: none;     /* клики проходят, кроме самой карточки */
+}
+
+/* сама карточка — НЕ фиксированная, обычный блочный элемент */
+.cb-modal{
+  pointer-events: auto;
+  width: min(92vw, 480px);
+  max-height: min(88vh, 560px);  /* ← ограничение по высоте */
+  overflow: auto;                /* скролл внутри, если контент длинный */
+
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  padding: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+/* крестик */
+.cb-close{
+  position: absolute; top: 8px; right: 10px;
+  border: 0; background: transparent; font-size: 24px; cursor: pointer;
+}
+
+.cb-field {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding-bottom: 18px;     /* резерв под строку ошибки */
+}
+
+.cb-err {
+  position: absolute;
+  left: 0;
+  top: 80%;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #b91c1c;
+
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.cb-field.has-error .cb-err {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* мобильные мелочи */
+@media (max-width: 520px){
+  .cb-modal{ border-radius: 12px; padding: 16px; }
+}
+
+
+.cb-title{ font-size: 20px; font-weight: 700; margin: 8px 0 0; color: #111; }
+.cb-sub{ font-size: 14px; color: #555; margin: -4px 0 4px; }
+
+.cb-form{ display: grid; gap: 12px; }
+.cb-field{ display: grid; gap: 6px; }
+.cb-field span{ font-size: 12px; color: #444; }
+.cb-field input{
+  width: 100%; border: 1px solid #ddd; border-radius: 10px;
+  padding: 10px 12px; font-size: 16px;
+}
+.cb-field input:focus{ outline: 2px solid #000; outline-offset: 1px; }
+
+.cb-err{ color: #b91c1c; font-size: 12px; }
+.cb-success{
+  background: #f0fdf4; color: #166534;
+  border: 1px solid #bbf7d0; border-radius: 10px; padding: 10px;
+}
+.cb-error{
+  background: #fef2f2; color: #991b1b;
+  border: 1px solid #fecaca; border-radius: 10px; padding: 10px;
+}
+
+.cb-btn{
+  margin-top: 6px; background: var(--sm-dark, #222);
+  color: #fff; border: 0; padding: 12px 16px; border-radius: 12px;
+  font-weight: 700; cursor: pointer;
+}
+.cb-btn:disabled{ opacity: .7; cursor: default; }
+
+@keyframes cbFade { from{ opacity: 0 } to{ opacity: 1 } }
+@keyframes cbPop  { from{ transform: scale(.98); opacity: 0 } to{ transform: scale(1); opacity: 1 } }
