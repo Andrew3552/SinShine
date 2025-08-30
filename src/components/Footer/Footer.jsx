@@ -54,7 +54,7 @@ export default function Footer() {
         <nav className="sm-footer__col">
           <h4 className="sm-footer__title">КОМПАНІЯ</h4>
           <ul className="sm-footer__links">
-            <li><Link to="/home">Про компанію</Link></li>
+            <li><Link to="/">Про компанію</Link></li>
             <li><Link to="/projects">Наші проєкти</Link></li>
             <li><Link to="/contact">Контакти</Link></li>
             <li><Link to="/privacy">Політика конфіденційності</Link></li>
