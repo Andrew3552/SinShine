@@ -66,6 +66,23 @@
     padding: 0 var(--p-x) 0; /* когда скрыто — без вертикальных отступов */
   }
 
+  .sm-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 1100;                         /* ниже меню, ниже шапки */
+    background: rgba(0,0,0,.2);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+  .sm-overlay.is-open{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
   .sm-nav__inner {
     flex-direction: column;
     gap: 16px;

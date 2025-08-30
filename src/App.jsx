@@ -6,17 +6,17 @@ import "./App.scss";
 
 export default function App() {
   return (
-    <>
+    <div className="app-shell">
       {/* Хедер */}
       <Header/>
 
       {/* Основной контент */}
-      <main>
-        <Outlet />
+      <main className="app-main">
+     <div className="page"> <Outlet /></div>
       </main>
 
       {/* Футер */}
       <Footer/>
-    </>
+    </div>
   );
 }

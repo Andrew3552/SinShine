@@ -7,6 +7,28 @@
   --sm-radius: 24px;
 }
 
+
+.app-shell {
+  min-height: 100svh;            /* занимает весь экран, учитывая мобильные панели */
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main{
+  flex: 1 0 auto;              /* занимает всё оставшееся место */
+  display: flex;               /* чтобы ребёнок мог растянуться */
+  min-height: 0;               /* важный дефолт для корректного расчёта */
+}
+
+/* то, что отрисовывает Outlet, будет тянуться на всю доступную высоту */
+.page{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+
 @font-face{
   font-family: "Montserrat-Bold";
   src: url("../assets/fonts/Montserrat-Bold.ttf") format("ttf");
